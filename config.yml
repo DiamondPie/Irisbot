@@ -15,8 +15,8 @@ version: 1.1.2
 # | settings.token["<Your Token Name>"]
 token:
   # https://discord.com/developers/applications
-  discord: MTE2MjIxNTExMTM1MjY0Nzc3MQ.G0gs4A.D5Z6vndpAYwLHL0ABZNZUawroHxadAARXOJxic
-
+  discord: 填写自己的discord bot token
+  
   # https://replicate.com/account/api-tokens
   replicate: r8_0Qar5xa2sSHNMkKlWXhv3JYXEGAqafX3jGtaP
 
