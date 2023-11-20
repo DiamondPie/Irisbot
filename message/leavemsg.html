@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Leave a message</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+
+        * {
+            font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(45deg, #e0c3fc 0%, #8ec5fc 100%);
+        }
+
+        .messages {
+            margin: 120px;
+            width: 1200px;
+            padding: 50px 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;background: linear-gradient(
+                to right bottom,
+                rgba(255,255,255,.6),
+                rgba(255,255,255,.3),
+                rgba(255,255,255,.2)
+            );
+            background-color: rgba(255, 255, 255, 0.266);
+            border-radius: 40px;
+            box-shadow: 0 10px 50px #00000019;
+        }
+
+        .form {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            flex-direction: column;
+            width: 100%;
+            padding-bottom: 90px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+        }
+
+        input,
+        textarea {
+            letter-spacing: 3.2px;
+            font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+            resize: none;
+            border: none;
+            color: #000;
+            margin-bottom: 40px;
+            font: 900 60px '';
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        #username {
+            height: 90px;
+        }
+
+        #message {
+            height: 200px;
+        }
+
+        .messages h1 {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 70px;
+            font-size: 140px;
+            background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 10px;
+        }
+
+        .messages h2 {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 70px;
+            font-size: 100px;
+            background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 10px;
+        }
+
+        #submitBtn {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(90deg, #e0c3fc 0%, #8ec5fc 100%);
+            border: none;
+            font-size: 45px;
+            letter-spacing: 5px;
+            width: 300px;
+            height: 80px;
+            border-radius: 50PX;
+            transition: 0.5s;
+        }
+
+        #submitBtn:hover {
+            transform: scale(1.1);
+        }
+
+        #messageBoard {
+            width: 100%;
+            text-align: left;
+        }
+
+        @keyframes messageFadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .message {
+            width: 100%;
+            margin: 10px;
+            padding: 10px;
+            opacity: 0;
+            animation: messageFadeIn 0.5s ease forwards;
+            background-image: linear-gradient(90deg, #8ec5fc 0%, #e0c3fc 100%);
+            background-color: #fff;
+            margin: 70px 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px #00000026;
+            text-shadow: 0px 0px 20px #ffffff;
+        }
+
+        .message-info {
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 36px;
+            position: relative;
+        }
+
+        .info {
+            transform: translateY(-30px);
+        }
+
+        .info img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 10px #fff solid;
+        }
+
+        strong {
+            position: absolute;
+            width: 800px;
+            letter-spacing: 3px;
+            top: 70px;
+            left: 170px;
+        }
+
+        .message-info span {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .content {
+            font-size: 44px;
+            margin: 30px;
+            width: 95%;
+        }
+
+        #messagePurpose {
+            letter-spacing: 3.2px;
+            font-family: 'Quicksand', Arial, Helvetica, sans-serif;
+            height: 90px;
+            border: none;
+            color: #757575;
+            margin-bottom: 40px;
+            font: 900 60px '';
+            border-radius: 10px;
+            padding-left: 30px;
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            background-color: rgba(255, 255, 255, 1);
+            cursor: pointer; /* 鼠标悬停时显示手型光标 */
+            transition: background-color 0.3s ease; /* 添加过渡效果 */
+        }
+
+        #messagePurpose option {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* 鼠标悬停时改变背景颜色 */
+        #messagePurpose:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="messages">
+        <h1>Message Board</h1>
+        <div class="form">
+            <input type="text" id="username" placeholder="Your name" value="{{usrname}}" style="font-family: 'Quicksand', Arial, Helvetica, sans-serif" readonly>
+            <select id="messagePurpose" style="font-family: 'Quicksand', Arial, Helvetica, sans-serif">
+                <option value="" disabled selected hidden>I'd like to...</option>
+                <option value="bug">Report a Bug</option>
+                <option value="suggestion">Give Some Suggestions</option>
+                <option value="casual">Casual Talk</option>
+            </select>
+            <textarea placeholder="Content" id="message" style="font-family: 'Quicksand', Arial, Helvetica, sans-serif"></textarea>
+            <button id="submitBtn">Submit</button>
+        </div>
+        <div id="messageBoard">
+            {{ preview | safe }}
+            <div style="text-align: center; font-size: 20px; font-weight: bold;">You've hit the bottom. No, not emotionally – just the end of this page.</div>
+        </div>
+    </div>
+</body>
+<script>
+    const purpose = document.getElementById('messagePurpose');
+    purpose.addEventListener('click', function() {
+        if (purpose.value) {
+            document.getElementById('messagePurpose').style.color = "#000";
+        }
+    })
+    // 给提交按钮添加点击事件监听器
+    document.getElementById('submitBtn').addEventListener('click', function () {
+        // 获取用户名和留言内容
+        var username = document.getElementById('username').value;
+        var message = document.getElementById('message').value;
+        // 如果留言内容为空，弹出提示并返回
+        if (message === '') {
+            alert('I promise not to read your secrets, but I do need some input.😉');
+            return;
+        }
+        else if (purpose.value === '') {
+            alert('Why are you here? I\'m not a therapist, but I\'ll listen! 😄');
+            return;
+        }
+
+        // 将留言内容发送至服务器
+        var data = {
+            "username": username,
+            "timestamp": getCurrentTime(),
+            "content": message
+        };
+        fetch("https://irisbot--diamondpie.repl.co/receive", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            // 请求成功，处理响应
+            console.log(data);
+        })
+        .catch(error => {
+            // 请求失败，处理错误
+            console.error("Error:", error);
+        });
+        // 重定向至提示成功的网页
+        window.location.href = "./finish"
+    });
+    // 获取当前时间的函数
+    function getCurrentTime() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = ('0' + (now.getMonth() + 1)).slice(-2);
+        var day = ('0' + now.getDate()).slice(-2);
+        var hours = ('0' + now.getHours()).slice(-2);
+        var minutes = ('0' + now.getMinutes()).slice(-2);
+        var seconds = ('0' + now.getSeconds()).slice(-2);
+        return year + '/' + month + '/' + day + ' ' + hours + ':' + minutes + ':' + seconds;
+    }
+
+</script>
+
+</html>

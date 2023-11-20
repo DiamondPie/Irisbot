@@ -1,0 +1,90 @@
+#  Irisbot Server Configuration File
+# 
+#  Copyright © 2023 Irisbot
+#  Made by DiamondPie
+
+# The version info of bot server.
+# Format: xx.xx.xx[.xxxx][-beta]
+# If the version is a snapshot, it should end up with "-beta"
+version: 1.1.2
+
+# Tokens of third-party apis. 
+# These should be replaced with your own tokens.
+# To call these tokens, you can use expression like this: 
+# | import settings
+# | settings.token["<Your Token Name>"]
+token:
+  # https://discord.com/developers/applications
+  discord: MTE2MjIxNTExMTM1MjY0Nzc3MQ.G0gs4A.D5Z6vndpAYwLHL0ABZNZUawroHxadAARXOJxic
+
+  # https://replicate.com/account/api-tokens
+  replicate: r8_0Qar5xa2sSHNMkKlWXhv3JYXEGAqafX3jGtaP
+
+  # https://api-ninjas.com/profile
+  ninjas: L3cZ4YmgAAuqwR8Ao0yryw==EVFKsYpsHlENzHk4
+
+  #
+  yunxi: 683dcd4201de79e4a2002b6ef78a40d9
+  # Backup Token
+  # yunxi_2: 352d7dc27a535aba27f0505ad0f1a685
+
+  # 
+  linhunyun: YmtGQmVDdFlaMDVOWTNZeFRYQk1iM1JCZUM5SFFUMDk=
+
+# Open configuration for local api
+api:
+  # Api used for data transfer and asynchronous calling.
+  # For safety, it should be always run at localhost (127.0.0.1)
+  function:
+    host: 127.0.0.1
+    port: 5000
+
+  # Api used for thread heartbeating. This should NOT be changed.
+  # For bot monitor, please see https://uptimerobot.com/
+  # This will be overrided if settings.heartbeat is false.
+  heartbeat:
+    host: 0.0.0.0
+    port: 13579
+    endpoint: /heartbeat
+
+# Settings for irisbot. You can customize these items.
+settings:
+  # The prefix of bot commands
+  # Bot will handle the commands starts with this character
+  command_prefix: /
+
+  # Main theme color the bot uses
+  # Embed color should use this as default. 
+  # The formula is R*65536 + G*256 + B {0<=R,G,B<=255}
+  theme_color: 15565216
+
+  # Enable heartbeat to keep the connection with server.
+  heartbeat: true
+
+  # Allow bot to send messages. 
+  # This should always be true.
+  message_content: true
+
+  # Allow bot to operate guild members. 
+  # This should always be true.
+  members: true
+
+  black:
+    # blacklist of guilds
+    # Bot will NOT handle messages from these guilds.
+    guild_blacklist: []
+
+    # blacklist of members
+    # Bot will NOT handle messages from these members.
+    member_blacklist: []
+
+# Settings for server logger. You can customize these items.
+log:
+  # If this is true, the logs will be saved in the specified file.
+  to_file: true
+  file_name: Irisbot_Server_{datetime}
+
+  # If this is true, the logs will be displayed at terminal console.
+  display: true
+
+# end of configuration file

@@ -1,0 +1,33 @@
+{
+    "__comment": {
+        "Debug": "Commands which should be used by bot developer.",
+        "Tools": "Useful tools in daily life.",
+        "Entertainment": "Fun games in channel!",
+        "Ai": "Powerful or harmful?",
+        "Trash": "Will anyone actually use this?"
+    },
+    "debug": {
+        "/test": "Send a test message to this channel.",
+        "/pritest": "Send a DM to command executor.",
+        "/log": "Send details of console log.",
+        "/noteme": "Note command executor.",
+        "/reboot": "Reboot the bot.",
+        "/poweroff": "Shutdown the bot.",
+        "/testerror": "Make an error for testing."
+    },
+    "tools": {
+        "/qrcode": "Scan and parse a qrcode. Remember to upload the qrcode as attachment!"
+    },
+    "entertainment": {
+        "/quiz": "Solve a maths problem in 60 secs.",
+        "/roulette": "Start a round of russian roulette."
+    },
+    "ai": {
+        "/paint": "Paint image by providing a scene.",
+        "/assess": "Assess an image.",
+        "/facefix": "Fix the human face in image."
+    },
+    "trash": {
+        "/kht": "Quickly open kahoot."
+    }
+}
