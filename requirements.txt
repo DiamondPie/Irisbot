@@ -1,0 +1,10 @@
+aiohttp==3.8.6
+beautifulsoup4==4.12.2
+bs4==0.0.1
+discord.py==2.3.2
+Flask==3.0.0
+replicate==0.15.3
+requests==2.31.0
+py-switch==0.0.5
+easygoogletranslate==0.0.4
+PyYAML==6.0.1
